@@ -30,6 +30,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.noteapp.model.Note
+import com.example.noteapp.util.formatDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
@@ -105,7 +106,7 @@ fun NoteItem(
                 text = note.description, color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleSmall
             )
-            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")))
+            Text(text = formatDate(note.entryDate.time))
         }
     }
 

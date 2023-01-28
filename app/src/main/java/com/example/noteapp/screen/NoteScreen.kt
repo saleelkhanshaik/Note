@@ -85,11 +85,11 @@ fun NoteScreen(
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val requester = FocusRequester()
+//            val requester = FocusRequester()
             NoteInputText(
                 text = title, label = "Title", onTextChanges = {
                     title = it
-                }, modifier = Modifier.padding(top = 12.dp, bottom = 8.dp).focusRequester(requester)
+                }, modifier = Modifier.padding(top = 12.dp, bottom = 8.dp)
             )
             NoteInputText(
                 text = description, label = "Add a note", onTextChanges = {
@@ -104,7 +104,6 @@ fun NoteScreen(
                 onAddNote(Note(title = title, description = description))
                 title = ""
                 description = ""
-                requester.requestFocus()
                 Toast.makeText(context, "Note Added", Toast.LENGTH_SHORT).show()
             }
             Divider(modifier = Modifier.padding(12.dp))
